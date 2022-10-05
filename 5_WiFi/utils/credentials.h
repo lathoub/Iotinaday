@@ -1,2 +1,2 @@
-char* ssid = "FLAGIS";
-char* pass = "flagis2022";
+char* ssid = "Iotinaday";
+char* pass = "51790615";
