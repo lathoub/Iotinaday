@@ -2,6 +2,8 @@
 ## step 1
 To get step-by-step instructions select one of the following link accordingly to your operating system.
 
+Note: use the legacy Arduino 1.8.19 (scroll down, near bottom of the page)
+
 - [Windows](https://docs.arduino.cc/software/ide-v1/tutorials/Windows)
 - [MacOS](https://docs.arduino.cc/software/ide-v1/tutorials/macOS)
 - [Linux](https://docs.arduino.cc/software/ide-v1/tutorials/Linux)
