@@ -47,12 +47,12 @@ void transmitValue(float value)
 
   if (conn.connectNonBlocking(server, server_port, user, password) != RESULT_FAIL)
   {
-    char hexString[20];
+    char idHex[20];
     itoa(ESP.getChipId(), hexString, 16); // HEX ID of chip (last 3 digits of MAC)
 
-    auto INSERT_SQL = String("INSERT INTO geo_atelier.sensor")
-                      + " (id, measureDateTime, location, measurement) VALUES ('"
-                      + hexString + "', '"
+    auto INSERT_SQL = String("INSERT INTO iotinaday.observaties")
+                      + " (id, wanneer, waar, waarde) VALUES ('"
+                      + idHex + "', '"
                       + getISO8601localDateTime()
                       + "', PointFromText('POINT(" + lng + " " + lat + ")'), "
                       + value + " )";
