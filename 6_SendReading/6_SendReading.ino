@@ -1,6 +1,6 @@
 #include <ESP8266WiFi.h>
 
-float lat = 51, lng = 4, height = 4; // default value, overwrite
+float lat = 51.9, lng = 4.5, height = 4; // default value, overwrite
 
 #include "utils/logging.h"
 #include "utils/credentials.h"
