@@ -22,7 +22,6 @@ void transmitValue(float value);
 //#include "HCSR04.h"
 //#include "HMC5883.h"
 //#include "HX711.h"
-//#include "keyboard.h"
 //#include "MAX4466.h"
 //#include "MB060.h"
 
