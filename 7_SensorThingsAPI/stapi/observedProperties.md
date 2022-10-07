@@ -3,18 +3,6 @@
 POST:
 `http://<host>/FROST-Server/v1.0/ObservedProperties`
 
-## Bending Sensor
-
-![MB060](res/MB060.png)
-
-```javascript
-{
-  "name": "AngleRange",
-  "description": "Bending movements between 0 and 180 degrees",
-  "definition": "https://en.wikipedia.org/wiki/Bending"
-}
-```
-
 ## Weighing Scale 
 ![HX711](res/HX711.png)
 
@@ -39,26 +27,6 @@ POST:
 }
 ```
 
-## Digital Barometer  
-![bmp180](res/bmp180.png)
-
-### ObservedProperties:
-```javascript
-{
-  "name": "Barometric Pressure",
-  "description": "The pressure exerted at a point due to the presence of an atmosphere",
-  "definition": "http://www.qudt.org/qudt/owl/1.0.0/quantity/Instances.html#AtmosphericPressure"
-}
-```
-
-```javascript
-{
-  "name": "Temperature",
-  "description": "Temperature is a physical quantity that expresses the degree of hotness or coldness of a substance",
-  "definition": "http://www.qudt.org/qudt/owl/1.0.0/quantity/Instances.html#ThermodynamicTemperature"
-}
-```
-
 ## Temperature and Humidity  
 ![am2320](res/am2320.png)
 
@@ -68,18 +36,6 @@ POST:
   "name": "Humidity",
   "description": "Absolute humidity is the mass of water in a particular volume of air. It is a measure of the density of water vapor in an atmosphere",
   "definition": "http://www.qudt.org/qudt/owl/1.0.0/quantity/Instances.html#AbsoluteHumidity"
-}
-```
-
-## Gas Sensor 
-![ags02ma](res/ags02ma.png)
-
-### ObservedProperty:
-```javascript
-{
-  "name": "TVOC",
-  "description": "Total Volatile Organic Compounds",
-  "definition": "https://en.wikipedia.org/wiki/Volatile_organic_compound"
 }
 ```
 
@@ -104,18 +60,6 @@ POST:
   "name": "SignalStrength",
   "description": "Magnitude of the electric field",
   "definition": "http://www.qudt.org/qudt/owl/1.0.0/quantity/Instances.html#SignalStrength"
-}
-```
-
-## Touch Module
-![TTP224](res/TTP224.png)
-
-### ObservedProperty:
-```javascript
-{
-  "name": "State",
-  "description": "State up or down",
-  "definition": "n/a"
 }
 ```
 

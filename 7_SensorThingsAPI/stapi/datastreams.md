@@ -9,28 +9,6 @@ Create (POST) the Datastreams with the code below to `http://<host>/FROST-Server
 
 After the Datastreams have been created, note the `@iot.id` in the tables below. (The Datastream `@iot.id` needs to be used when posting observations!)
 
-
-## Taiwan Alpha Flex Sensor - 60mm
-
-| **Thing** `@iot.id` | **Datastream** `@iot.id`
-|-|-
-|.|.
-|.|.
-
-```javascript
-{
-  "name": "AngleRange DS",
-  "description": "Datastream for recording AngleRange",
-  "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
-  "unitOfMeasurement": {
-    "name": "degrees",
-    "symbol": "deg",
-    "definition": "http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#DegreeAngle"
-  },
-  "ObservedProperty":{"@iot.id": 29},
-  "Sensor":{"@iot.id": 38}
-}
-```
 ## HX711 weight scale
 | **Thing** `@iot.id` | **Datastream** `@iot.id`
 |-|-
@@ -69,25 +47,6 @@ After the Datastreams have been created, note the `@iot.id` in the tables below.
   "Sensor":{"@iot.id": 40}
 }
 ```
-## BMP180 Digitale Barometer Druk Sensor Module
-| **Thing** `@iot.id` | **Datastream** `@iot.id`
-|-|-
-|.|.
-|.|.
-```javascript
-{
-  "name": "Barometric Pressure DS",
-  "description": "Datastream for recording barometric pressure",
-  "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
-  "unitOfMeasurement": {
-    "name": "KiloPascal",
-    "symbol": "KPa",
-    "definition": "http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#KiloPascal"
-  },
-  "ObservedProperty":{"@iot.id": 32},
-  "Sensor":{"@iot.id": 41}
-}
-```
 ## AM2320 Thermometer Temperatuur en Vochtigheids Sensor
 | **Thing** `@iot.id` | **Datastream** `@iot.id`
 |-|-
@@ -122,25 +81,6 @@ Note: The AM2320 has 2 sensors embedded and will have 2 Datastreams!
   },
   "ObservedProperty":{"@iot.id": 34},
   "Sensor":{"@iot.id": 42}
-}
-```
-## ASAIR AGS02MA TVOC Gassensor
-| **Thing** `@iot.id` | **Datastream** `@iot.id`
-|-|-
-|.|.
-|.|.
-```javascript
-{
-  "name": "TVOC DS",
-  "description": "Datastream for recording TVOC",
-  "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
-  "unitOfMeasurement": {
-    "name": "Total Volatile Organic Compounds",
-    "symbol": "xxx",
-    "definition": "xxxx"
-  },
-  "ObservedProperty":{"@iot.id": 35},
-  "Sensor":{"@iot.id": 43}
 }
 ```
 ## ADXL345 Digitale 3-axis Accelerometer Module V2
@@ -179,25 +119,6 @@ Note: The AM2320 has 2 sensors embedded and will have 2 Datastreams!
   },
   "ObservedProperty":{"@iot.id": 37},
   "Sensor":{"@iot.id": 45}
-}
-```
-## Touch Module TTP224 4-kanaals
-| **Thing** `@iot.id` | **Datastream** `@iot.id`
-|-|-
-|.|.
-|.|.
-```javascript
-{
-  "name": "State DS",
-  "description": "Datastream for recording State",
-  "observationType": "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation",
-  "unitOfMeasurement": {
-    "name": "onOff",
-    "symbol": "xxx",
-    "definition": "xxxx"
-  },
-  "ObservedProperty":{"@iot.id": 38},
-  "Sensor":{"@iot.id": 46}
 }
 ```
 ## RCWL-1601 Ultrasonische Sensor
