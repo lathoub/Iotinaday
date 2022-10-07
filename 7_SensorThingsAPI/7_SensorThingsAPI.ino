@@ -2,7 +2,7 @@
 #include <ESP8266HTTPClient.h>
 #include <Arduino_JSON.h> // from https://github.com/arduino-libraries/Arduino_JSON
 
-float lat = 51, lng = 4;
+float lat = 51.9, lng = 4.5;
 
 #include "utils/logging.h"
 #include "utils/credentials.h"
@@ -14,10 +14,11 @@ float lat = 51, lng = 4;
 // forward declaration, so it can be used in readSensors
 void transmitValue(const int datastreamId, const JSONVar& observation);
 
+// Uncomment the line below, corresponding with the used sensors
 //#include "ADXL345.h"
 //#include "HCSR04.h"
 //#include "AM2320.h"
-//#include "MAX4466.h"
+#include "MAX4466.h"
 //#include "HMC5883.h"
 //#include "HX711.h"
 

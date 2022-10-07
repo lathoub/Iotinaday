@@ -14,16 +14,12 @@ float lat = 51.9, lng = 4.5, height = 4; // default value, overwrite
 void transmitValue(float value);
 
 // Uncomment the line below, corresponding with the used sensors
-#include "ADXL345.h"
-//#include "AGS02MA.h"
+//#include "ADXL345.h"
 //#include "AM2320.h"
-//#include "BMP085.h"
-//#include "BMP180.h"
 //#include "HCSR04.h"
 //#include "HMC5883.h"
 //#include "HX711.h"
-//#include "MAX4466.h"
-//#include "MB060.h"
+#include "MAX4466.h"
 
 MySQL_Connection conn((Client *)&client);
 auto query_mem = MySQL_Query(&conn);
@@ -47,7 +43,7 @@ void transmitValue(float value)
   if (conn.connectNonBlocking(server, server_port, user, password) != RESULT_FAIL)
   {
     char idHex[20];
-    itoa(ESP.getChipId(), hexString, 16); // HEX ID of chip (last 3 digits of MAC)
+    itoa(ESP.getChipId(), idHex, 16); // HEX ID of chip (last 3 digits of MAC)
 
     auto INSERT_SQL = String("INSERT INTO iotinaday.observaties")
                       + " (id, wanneer, waar, waarde) VALUES ('"

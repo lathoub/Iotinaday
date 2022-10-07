@@ -22,7 +22,7 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, pass);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+    delay(100);
     Serial.print(".");
   }
   Serial.println("");
@@ -38,5 +38,5 @@ void setup() {
 void loop() {
   Serial.println(getISO8601dateTime());
 
-  delay(250);
+  delay(2500);
 }
