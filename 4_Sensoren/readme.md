@@ -5,7 +5,6 @@ What sensor did you receive?
 * ADXL345
 * BMP085
 * BMP180
-* buttons
 * HMC5883
 * HX711
 * HCSR04
