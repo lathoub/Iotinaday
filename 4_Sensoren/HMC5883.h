@@ -1,53 +1,62 @@
-#include <Wire.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_HMC5883_U.h>
+#include <DFRobot_QMC5883.h>
 
-/* Assign a unique ID to this sensor at the same time */
-Adafruit_HMC5883_Unified mag = Adafruit_HMC5883_Unified(12345);
+DFRobot_QMC5883 compass(&Wire, /*I2C addr*/HMC5883L_ADDRESS);
 
 void setupSensors() {
-  auto retVal = mag.begin();
+
+  while (!compass.begin())
+  {
+    Serial.println("Could not find a valid 5883 sensor, check wiring!");
+    delay(500);
+  }
+
+  if (compass.isHMC())
+  {
+    Serial.println("Initialize HMC5883");
+
+    //Set/get the compass signal gain range, default to be 1.3 Ga
+    // compass.setRange(HMC5883L_RANGE_1_3GA);
+    // Serial.print("compass range is:");
+    // Serial.println(compass.getRange());
+
+    //Set/get measurement mode
+    // compass.setMeasurementMode(HMC5883L_CONTINOUS);
+    // Serial.print("compass measurement mode is:");
+    // Serial.println(compass.getMeasurementMode());
+
+    //Set/get the data collection frequency of the sensor
+    // compass.setDataRate(HMC5883L_DATARATE_15HZ);
+    // Serial.print("compass data rate is:");
+    // Serial.println(compass.getDataRate());
+
+    //Get/get sensor status
+    // compass.setSamples(HMC5883L_SAMPLES_8);
+    // Serial.print("compass samples is:");
+    // Serial.println(compass.getSamples());
+  }
 }
 
-float calcHeading(sensors_event_t& event)
-{
-  // Hold the module so that Z is pointing 'up' and you can measure the heading with x&y
-  // Calculate heading when the magnetometer is level, then correct for signs of axis.
-  float heading = atan2(event.magnetic.y, event.magnetic.x);
-
-  // Once you have your heading, you must then add your 'Declination Angle', which is the 'Error' of the magnetic field in your location.
-  // Find yours here: http://www.magnetic-declination.com/
-  // Mine is: -13* 2' W, which is ~13 Degrees, or (which we need) 0.22 radians
-  // If you cannot find your Declination, comment out these two lines, your compass will be slightly off.
-  float declinationAngle = 0.22;
-  heading += declinationAngle;
-
-  // Correct for when signs are reversed.
-  if (heading < 0)
-    heading += 2 * PI;
-
-  // Check for wrap due to addition of declination.
-  if (heading > 2 * PI)
-    heading -= 2 * PI;
-
-  // Convert radians to degrees for readability.
-  float headingDegrees = heading * 180 / M_PI;
-
-  return headingDegrees;
-}
-
+/**
+   @brief  Set declination angle on your location and fix heading
+   @n      You can find your declination on: http://magnetic-declination.com/
+   @n      (+) Positive or (-) for negative
+   @n      For Bytom / Poland declination angle is 4'26E (positive)
+   @n      Formula: (deg + (min / 60.0)) / (180 / PI);
+*/
 void loopSensors() {
-  sensors_event_t event;
-  mag.getEvent(&event);
+  float declinationAngle = (4.0 + (26.0 / 60.0)) / (180 / PI);
+  compass.setDeclinationAngle(declinationAngle);
+  sVector_t mag = compass.readRaw();
+  compass.getHeadingDegrees();
 
-  // Display the results (magnetic vector values are in micro-Tesla (uT))
-  Serial.print("X: "); Serial.print(event.magnetic.x); Serial.print("\t");
-  Serial.print("Y: "); Serial.print(event.magnetic.y); Serial.print("\t");
-  Serial.print("Z: "); Serial.print(event.magnetic.z); Serial.print("\t"); Serial.println("uT");
+  Serial.print("X:");
+  Serial.print(mag.XAxis / 100.f);
+  Serial.print(" uT\tY:");
+  Serial.print(mag.YAxis / 100.f);
+  Serial.print(" uT\tZ:");
+  Serial.print(mag.ZAxis / 100.f);
+  Serial.print(" uT,\tDegrees = ");
+  Serial.println(mag.HeadingDegress);
 
-  auto headingDegrees = calcHeading(event);
-
-  Serial.print("Heading (degrees): "); Serial.println(headingDegrees);
-
-  delay(500);
+  delay(100);
 }

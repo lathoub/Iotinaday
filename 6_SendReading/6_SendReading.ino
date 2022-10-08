@@ -14,12 +14,12 @@ float lat = 51.9, lng = 4.5, height = 4; // default value, overwrite
 void transmitValue(float value);
 
 // Uncomment the line below, corresponding with the used sensors
-//#include "ADXL345.h"
-//#include "AM2320.h"
-//#include "HCSR04.h"
-//#include "HMC5883.h"
-//#include "HX711.h"
-#include "MAX4466.h"
+//#include "ADXL345.h" // 3-axis Accelerometer 
+//#include "HCSR04.h" // afstand
+//#include "AM2320.h" // temp & humidity
+//#include "MAX4466.h" // geluid
+//#include "HMC5883.h" // 3-Axis Kompas Magnetometer
+//#include "HX711.h" // weight
 
 MySQL_Connection conn((Client *)&client);
 auto query_mem = MySQL_Query(&conn);

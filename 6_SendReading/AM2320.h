@@ -15,7 +15,7 @@
 // do not forget pull up resistors between SDA, SCL and VDD..
 
 
-#include "AM232X.h" // via library manager
+#include "AM232X.h" // via library manager Rob Tillaar
 
 AM232X AM2320;
 
