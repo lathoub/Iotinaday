@@ -2,6 +2,8 @@
 
 DFRobot_QMC5883 compass(&Wire, /*I2C addr*/HMC5883L_ADDRESS);
 
+const uint32_t datastreamId = xxx; //
+
 void setupSensors() {
 
   while (!compass.begin())

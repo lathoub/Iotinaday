@@ -19,7 +19,7 @@ void transmitValue(const int datastreamId, const JSONVar& observation);
 //#include "HCSR04.h" // afstand
 //#include "AM2320.h" // temp & humidity
 //#include "MAX4466.h" // geluid
-//#include "HMC5883.h" // 3-Axis Kompas Magnetometer
+#include "HMC5883.h" // 3-Axis Kompas Magnetometer
 //#include "HX711.h" // weight
 
 void setup()
